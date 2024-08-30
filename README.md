@@ -12,13 +12,13 @@ public class ExercíciosClassesEObjetos {
     public static void main(String[] args) {
         
          // Exercicio 1: Pessoa
-        Pessoa pessoa = new Pessoa("João", 30, "Engenheiro");
+        Pessoa pessoa = new Pessoa("Douglas", 25, "analista de dados");
         pessoa.exibirDetalhes();
 
         System.out.println("\n");
 
         // Exercicio 2: Conta Bancária
-        ContaBancaria conta = new ContaBancaria("Maria", "12345-6");
+        ContaBancaria conta = new ContaBancaria("Dunga", "12345-6");
         conta.depositar(500);
         conta.sacar(200);
         conta.exibirSaldo();
@@ -26,7 +26,7 @@ public class ExercíciosClassesEObjetos {
         System.out.println("\n");
 
         // Exercicio 3: Carro
-        Carro carro = new Carro("Ford", "Fusion", 2020);
+        Carro carro = new Carro("Fiat", "Palio", 2020);
         carro.acelerar(50);
         carro.desacelerar(20);
 
@@ -55,7 +55,7 @@ public class ExercíciosClassesEObjetos {
         System.out.println("\n");
 
         // Exercicio 7: Estudante
-        Estudante estudante = new Estudante("Carlos", 21);
+        Estudante estudante = new Estudante("Douglas", 26);
         estudante.adicionarDisciplina("Matemática");
         estudante.adicionarDisciplina("Física");
         estudante.exibirDisciplinas();
