@@ -1,256 +1,295 @@
 # Exerc-ciosClasseseObjetos
 
-package exercícios.classes.e.objetos;
+# CLASSE PAI (MAIN)
 
-/**
- *
- * @author Douglas Vieira
- */
+
+package exercíciosclasseseobjetos;
+
+
 public class ExercíciosClassesEObjetos {
 
+    
     public static void main(String[] args) {
-
-        Funcionario funcionario = new Funcionario("Douglas Vieira", 25, "Desenvolvedor", 5000.00);
-
-        System.out.println(funcionario.exibirDetalhes());
-
-        //exercicio2
-        ContaBancaria minhaConta = new ContaBancaria("Douglas Vieira", 1000.00, "12345-6");
-
-        System.out.println("Saldo inicial:" + minhaConta.getSaldo());
-
-        minhaConta.depositar(500.00);
-        minhaConta.sacar(200.00);
-        minhaConta.sacar(1500.00);
-
-        System.out.println("Saldo final:" + minhaConta.getSaldo());
-
-        //exercicio3
-        Carro meuCarro = new Carro("Toyota", "cololla", 2023);
-
-        System.out.println("Marca" + meuCarro.getMarca());
-        System.out.println("Modelo" + meuCarro.getModelo());
-        System.out.println("Ano" + meuCarro.getAno());
-        System.out.println("Velocidade inicial:" + meuCarro.getVelocidade() + "km/h");
-
-        meuCarro.acelerar(50.00);
-        meuCarro.acelerar(30.00);
-        System.out.println("Velocidade após aceleração" + meuCarro.getVelocidade() + "km/h");
-
-        meuCarro.desacelerar(20.00);
-        System.out.println("Velocidade após desaceleração:" + meuCarro.getVelocidade() + "km/h");
-
-        meuCarro.desacelerar(70.00);
-        System.out.println("Velocidade final:" + meuCarro.getVelocidade() + "km/h");
-    
-    
-        //exercicio4
         
-    
+         // Exercicio 1: Pessoa
+        Pessoa pessoa = new Pessoa("João", 30, "Engenheiro");
+        pessoa.exibirDetalhes();
+
+        System.out.println("\n");
+
+        // Exercicio 2: Conta Bancária
+        ContaBancaria conta = new ContaBancaria("Maria", "12345-6");
+        conta.depositar(500);
+        conta.sacar(200);
+        conta.exibirSaldo();
+
+        System.out.println("\n");
+
+        // Exercicio 3: Carro
+        Carro carro = new Carro("Ford", "Fusion", 2020);
+        carro.acelerar(50);
+        carro.desacelerar(20);
+
+        System.out.println("\n");
+
+        // Exercicio 4: Livro
+        Livro livro = new Livro("O Senhor dos Anéis", "J.R.R. Tolkien", 1000, 3);
+        livro.emprestar();
+        livro.devolver();
+
+        System.out.println("\n");
+
+        // Exercicio 5: Retângulo
+        Retangulo retangulo = new Retangulo(5, 7);
+        System.out.println("Área: " + retangulo.calcularArea());
+        System.out.println("Perímetro: " + retangulo.calcularPerimetro());
+
+        System.out.println("\n");
+
+        // Exercicio 6: Contador
+        Contador contador = new Contador(0);
+        contador.incrementar();
+        contador.incrementar();
+        contador.decrementar();
+
+        System.out.println("\n");
+
+        // Exercicio 7: Estudante
+        Estudante estudante = new Estudante("Carlos", 21);
+        estudante.adicionarDisciplina("Matemática");
+        estudante.adicionarDisciplina("Física");
+        estudante.exibirDisciplinas();
+        
+        
     }
-
-}
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package exercícios.classes.e.objetos;
-
-/**
- *
- * @author aluno.saolucas
- */
-public class ContaBancaria {
-
-    private String titular;
-    private double saldo;
-    private String Nconta;
-
-    public ContaBancaria(String titular, double saldo, String Nconta) {
-        this.titular = titular;
-        this.saldo = saldo;
-        this.Nconta = Nconta;
-    }
-
-    public void depositar(double valor) {
-        if (valor > 0) {
-            saldo += valor;
-            System.out.println("Deposito de " + valor + "realizado com sucesso!");
-        } else {
-            System.out.println("Valor de deposito deve ser positivo.");
-
-        }
-    }
-
-    public void sacar(double valor) {
-        if (valor > 0 && valor <= saldo) {
-            saldo -= valor;
-            System.out.println("Saque de " + valor + "realizado com sucesso.");
-        } else if (valor > saldo) {
-            System.out.println("Saldo insuficiente para realizar o saque.");
-        }else{
-            System.out.println("Valor do saque deve ser positivo.");
-        }
-    }
-    
-    public double getSaldo(){
-        return saldo;
-    }
-
-    public String getTitular() {
-        return titular;
-    }
-
-    public String getNconta() {
-        return Nconta;
-    }
-    
-
-}
-
-
-package exercícios.classes.e.objetos;
-
-/**
- *
- * @author aluno.saolucas
- */
-public class Funcionario extends Pessoa {
-
-    private double salario;
-
-   public Funcionario(String nome, int idade, String Profissao, double Salario ){
-       super(nome, idade, Profissao);
-       this.salario = salario;
-   }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
-   
-   @Override
-   public String exibirDetalhes(){
-   
-       return String.format("%s\Salário: R$%.2f", super.exibirDetalhes(), salario);
-   
-   }
     
 }
 
-package exercícios.classes.e.objetos;
-
-public class Carro {
-
-    private String marca;
-    private String modelo;
-    private int ano;
-    private double velocidade;
-    String getMarca;
-
-    public Carro(String marca, String modelo, int ano, double velocidade) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.ano = ano;
-        this.velocidade = velocidade;
-    }
-
-    public void acelerar(double incremento) {
-        if (incremento > 0) {
-            velocidade += incremento;
-            System.out.println("Acelerou em " + incremento + "km/h.");
-        } else {
-            System.out.println("Incremento de aceleração deve ser positivo.");
-
-        }
-    }
-
-    public void desacelerar(double decremento) {
-        if (decremento <= velocidade) {
-            velocidade -= decremento;
-            System.out.println("Desacelerou em" + decremento + "km/h.");
-        } else {
-            velocidade = 0;
-            System.out.println("Velocidade não pode ser negativa. Carro parado. ");
-        }
-    }
-
-    
-    
-        else{
-            System.out.println("Decremento de desaceleração deve ser positivo. ");
-            
-         
-
-    public double getVelocidade() {
-        return velocidade;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public int getAno() {
-        return ano;
-
-    }
-
-}
+#  Exercício 1: Criando uma Classe simples
 
 
-
-package exercícios.classes.e.objetos;
+package exercíciosclasseseobjetos;
 
 
 public class Pessoa {
     
-    private String nome;
-    private int idade;
-    private String Profissao;
-    
-    
-    public Pessoa(String nome, int idade, String Profissao){
-    
+      String nome;
+    int idade;
+    String profissao;
+
+    Pessoa(String nome, int idade, String profissao) {
         this.nome = nome;
         this.idade = idade;
-        this.Profissao = Profissao;
+        this.profissao = profissao;
+    }
+
+    void exibirDetalhes() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Profissão: " + profissao);
     }
     
-    public String getNome(){
-    return nome;
+}
+
+
+# Exercício 2: Conta Bancária
+
+
+
+package exercíciosclasseseobjetos;
+
+
+public class ContaBancaria {
     
+     String titular;
+    double saldo;
+    String numeroConta;
+
+    ContaBancaria(String titular, String numeroConta) {
+        this.titular = titular;
+        this.numeroConta = numeroConta;
+        this.saldo = 0.0;
     }
-    
-    public int getIdade(){
-    
-        return idade;
+
+    void depositar(double valor) {
+        saldo += valor;
+        System.out.println("Depósito de " + valor + " realizado. Novo saldo: " + saldo);
     }
-    
-    public void setIdade(int idade){
-    this.idade = idade;
+
+    void sacar(double valor) {
+        if (saldo >= valor) {
+            saldo -= valor;
+            System.out.println("Saque de " + valor + " realizado. Novo saldo: " + saldo);
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
     }
-    
-    public String getProfissao(){
-    return Profissao;
-    }
-    
-    public void setProfissao(String Profissao){
-    this.Profissao = Profissao;
-    }
-    
-    public String exibirDetalhes(){
-    return String.format("Nome: %s\nIdade: %d\nProfissão: %s", nome, idade, Profissao);
+
+    void exibirSaldo() {
+        System.out.println("Saldo atual: " + saldo);
     }
 }
+
+
+# Exercício 3: Carro
+
+
+package exercíciosclasseseobjetos;
+
+
+public class Carro {
+    
+     String marca;
+    String modelo;
+    int ano;
+    int velocidade;
+
+    Carro(String marca, String modelo, int ano) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.velocidade = 0;
+    }
+
+    void acelerar(int incremento) {
+        velocidade += incremento;
+        System.out.println("Acelerando. Velocidade atual: " + velocidade);
+    }
+
+    void desacelerar(int decremento) {
+        if (velocidade >= decremento) {
+            velocidade -= decremento;
+            System.out.println("Desacelerando. Velocidade atual: " + velocidade);
+        } else {
+            System.out.println("Não é possível desacelerar abaixo de 0.");
+        }
+    }
+}
+
+
+# Exercício 4: Livro
+
+
+package exercíciosclasseseobjetos;
+
+
+public class Livro {
+    
+     String titulo;
+    String autor;
+    int numeroPaginas;
+    int exemplaresDisponiveis;
+
+    Livro(String titulo, String autor, int numeroPaginas, int exemplaresDisponiveis) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.numeroPaginas = numeroPaginas;
+        this.exemplaresDisponiveis = exemplaresDisponiveis;
+    }
+
+    void emprestar() {
+        if (exemplaresDisponiveis > 0) {
+            exemplaresDisponiveis--;
+            System.out.println("Livro emprestado. Exemplares disponíveis: " + exemplaresDisponiveis);
+        } else {
+            System.out.println("Nenhum exemplar disponível para empréstimo.");
+        }
+    }
+
+    void devolver() {
+        exemplaresDisponiveis++;
+        System.out.println("Livro devolvido. Exemplares disponíveis: " + exemplaresDisponiveis);
+    }
+    
+}
+
+
+# Exercício 5: Retângulo
+
+
+package exercíciosclasseseobjetos;
+
+
+public class Retangulo {
+    
+     double largura;
+    double altura;
+
+    Retangulo(double largura, double altura) {
+        this.largura = largura;
+        this.altura = altura;
+    }
+
+    double calcularArea() {
+        return largura * altura;
+    }
+
+    double calcularPerimetro() {
+        return 2 * (largura + altura);
+    }
+    
+}
+
+
+# Exercício 6: Contador
+
+
+
+package exercíciosclasseseobjetos;
+
+
+public class Contador {
+    
+     int valor;
+
+    Contador(int valorInicial) {
+        this.valor = valorInicial;
+    }
+
+    void incrementar() {
+        valor++;
+        System.out.println("Valor incrementado: " + valor);
+    }
+
+    void decrementar() {
+        valor--;
+        System.out.println("Valor decrementado: " + valor);
+    } 
+    
+}
+
+# Exercício 7: Estudante 
+
+
+
+package exercíciosclasseseobjetos;
+
+import java.util.ArrayList;
+
+
+public class Estudante {
+    
+    String nome;
+    int idade;
+    ArrayList<String> disciplinas;
+
+    Estudante(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+        this.disciplinas = new ArrayList<>();
+    }
+
+    void adicionarDisciplina(String disciplina) {
+        disciplinas.add(disciplina);
+        System.out.println("Disciplina " + disciplina + " adicionada.");
+    }
+
+    void exibirDisciplinas() {
+        System.out.println("Disciplinas matriculadas: " + disciplinas);
+    }
+    
+}
+
 
 
 
